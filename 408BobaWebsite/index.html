@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>408 Boba - Premium Boba Tea Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="scroll-behavior: auto;">
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="408BobaLogo.avif" alt="408 Boba" class="logo-image">
+                <span class="logo-text" onclick="showPage('home')" style="cursor: pointer;">408 Boba</span>
+            </div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="javascript:void(0)" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('menu')" class="nav-link">Menu</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('order')" class="nav-link">Order</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-video-background">
+                <video muted playsinline preload="auto">
+                    <source src="408BobaVid.mp4" type="video/mp4">
+                    <!-- Fallback for browsers that don't support video -->
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="welcome-message">Welcome to 408 Boba</h1>
+                <div class="cta-buttons">
+                    <a href="javascript:void(0)" onclick="showPage('menu')" class="cta-button">Explore Our Menu</a>
+                    <a href="javascript:void(0)" onclick="showPage('order')" class="cta-button cta-secondary">Order Ahead</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Our Story</h2>
+            <div class="section-content">
+                <p>408 Boba is dedicated to serving delicious bubble tea and refreshing beverages to the local community. We strive to provide a welcoming environment where customers can enjoy quality drinks at affordable prices.</p>
+                
+                <p>Our menu features a variety of classic and innovative boba tea flavors, made with care to ensure consistent taste and quality. We use fresh ingredients and offer customizable options to suit different preferences, from tea strength to sweetness levels.</p>
+                
+                <p>At 408 Boba, we aim to create a friendly neighborhood spot where people can relax, connect with friends, or simply enjoy a moment of refreshment during their day. We're committed to providing excellent customer service and maintaining a clean, comfortable atmosphere for all our guests.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Visit Our Store</h2>
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3>Store Location</h3>
+                    <p><strong>Address:</strong><br>1053 E El Camino Real #1<br>Sunnyvale, CA 94087</p>
+                    <p><strong>Store Hours:</strong><br>
+                    Saturday: 11:00 AM - 9:30 PM<br>
+                    Sunday: 11:00 AM - 9:30 PM<br>
+                    Monday: 11:00 AM - 9:30 PM<br>
+                    Tuesday: 11:00 AM - 9:30 PM<br>
+                    Wednesday: 11:00 AM - 9:30 PM<br>
+                    Thursday: 11:00 AM - 9:30 PM<br>
+                    Friday: 11:00 AM - 9:30 PM</p>
+                    <p><strong>Phone:</strong> (408) 368-3581</p>
+                </div>
+                <div class="map-container">
+                    <h4>Find Us</h4>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6343.109097451999!2d-122.00432909999998!3d37.3530533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e5550dde5f%3A0xbf76cd5ca2c8a8cb!2s1053%20E%20El%20Camino%20Real%2C%20Sunnyvale%2C%20CA%2094087!5e0!3m2!1sen!2sus!4v1755993258382!5m2!1sen!2sus"
+                        width="100%" 
+                        height="300" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                        1053 E El Camino Real #1, Sunnyvale, CA 94087
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-section">
+            <h2 class="social-title">Follow Our Journey</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Stay updated with our latest creations, seasonal specials, and community events.</p>
+            <a href="javascript:void(0)" class="instagram-link" onclick="openInstagram()">
+                Follow @408boba on Instagram
+            </a>
+        </section>
+    </div>
+
+    <!-- Menu Page -->
+    <div id="menu" class="page menu-page">
+        <div class="menu-header">
+            <h1 class="menu-title">Our Menu</h1>
+            <p class="menu-subtitle">Handcrafted with passion, served with care</p>
+            <div class="pricing-notice">
+                <p><strong>Current pricing available on our <a href="javascript:void(0)" onclick="showPage('order')" style="color: #c07b40; text-decoration: underline;">Order Page</a></strong></p>
+            </div>
+        </div>
+
+
+        <div class="menu-layout">
+
+            <aside class="menu-tab-bar">
+                <button class="menu-tab active" onclick="showCategory(this, 'cat-sig')">Signatures</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-classic')">Milk Teas</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-fruit')">Fruit Teas</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-matcha')">Matcha</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-juices')">Juices</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-smoothies')">Smoothies</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-lemon')">Lemonades</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-specialty')">Specialty</button>
+                <button class="menu-tab" onclick="showCategory(this, 'cat-bakery')">Bakery</button>
+            </aside>
+
+            <div class="menu-categories">
+            <!-- Signature Creations -->
+            <div class="category" id="cat-sig">
+                <h2 class="category-title">Signature Creations</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoFlurry.jpg" alt="Mango Flurry" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Flurry</h3>
+                            <p>Tropical mango blend with creamy milk base and mango pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoFlurryWPoppingBoba.jpg" alt="Mango Flurry with Popping Boba" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Flurry Deluxe</h3>
+                            <p>Our signature mango flurry enhanced with bursting popping boba</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/OreoCrumble.jpg" alt="Oreo Crumble" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Oreo Crumble</h3>
+                            <p>Rich chocolate milk tea with crushed Oreo cookies and whipped cream</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/Strawberry Paradise.jpg" alt="Strawberry Paradise" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Strawberry Paradise</h3>
+                            <p>Fresh strawberry blend with coconut cream and strawberry pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/StrawberryDrip.JPG" alt="Strawberry Drip" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Strawberry Drip</h3>
+                            <p>Layered strawberry tea with vanilla cream drip and fresh strawberries</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/DewyDelight.jpg" alt="Dewy Delight" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Dewy Delight</h3>
+                            <p>Refreshing honeydew melon blend with coconut milk and pearls</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classic Milk Teas -->
+            <div class="category" id="cat-classic">
+                <h2 class="category-title">Classic Milk Teas</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/BrownSugarMilkTea.JPG" alt="Brown Sugar Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Brown Sugar Milk Tea</h3>
+                            <p>Rich brown sugar syrup with creamy milk tea and tapioca pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/LycheeBrownSugarMilkTea.JPG" alt="Lychee Brown Sugar Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Lychee Brown Sugar Milk Tea</h3>
+                            <p>Classic brown sugar milk tea elevated with sweet lychee flavor</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/ThaiMilkTea.JPG" alt="Thai Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Thai Milk Tea</h3>
+                            <p>Traditional Thai tea blend with condensed milk and ice</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/CoconutThaiMilkTea.JPG" alt="Coconut Thai Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Coconut Thai Milk Tea</h3>
+                            <p>Traditional Thai tea enhanced with rich coconut cream</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/TaroBliss.jpg" alt="Taro Bliss" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Taro Bliss</h3>
+                            <p>Creamy taro root blend with milk and signature taro pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/TaroMilkTea.JPG" alt="Taro Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Taro Milk Tea</h3>
+                            <p>Classic taro milk tea with authentic purple root flavor</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/OreoMilkTea.JPG" alt="Oreo Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Oreo Milk Tea</h3>
+                            <p>Cookies and cream milk tea with Oreo pieces and whipped topping</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/BlackSesameMilkTea_files/BG9A3829.JPG" alt="Black Sesame Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Black Sesame Milk Tea</h3>
+                            <p>Nutty black sesame blend with creamy milk and tapioca pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoMilkTea.jpg" alt="Mango Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Milk Tea</h3>
+                            <p>Tropical mango flavor with smooth milk tea base</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fruit Tea & Refreshers -->
+            <div class="category" id="cat-fruit">
+                <h2 class="category-title">Fruit Tea & Refreshers</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/GuavaBlackTea.JPG" alt="Guava Black Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Guava Black Tea</h3>
+                            <p>Refreshing black tea infused with tropical guava and fruit pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/GuavaMilkTea.JPG" alt="Guava Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Guava Milk Tea</h3>
+                            <p>Creamy guava milk tea with tropical fruit flavors and boba</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/PeachMilkTea.jpg" alt="Peach Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Peach Milk Tea</h3>
+                            <p>Sweet peach flavor with creamy milk tea and peach pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/WatermelonJuicewithTajin.JPG" alt="Watermelon Juice with Tajin" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Watermelon Juice with Tajin</h3>
+                            <p>Fresh watermelon juice with a hint of Tajin spice for a unique kick</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matcha & Specialty -->
+            <div class="category" id="cat-matcha">
+                <h2 class="category-title">Matcha & Specialty</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MatchaD'Amour.JPG" alt="Matcha D'Amour" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Matcha D'Amour</h3>
+                            <p>Premium matcha with sweet cream layers and matcha pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoMatcha.JPG" alt="Mango Matcha" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Matcha</h3>
+                            <p>Tropical mango combined with earthy matcha and coconut milk</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/BananaCreamMatcha.JPG" alt="Banana Cream Matcha" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Banana Cream Matcha</h3>
+                            <p>Smooth banana cream blended with premium matcha and vanilla</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fresh Juices & Aguas Frescas -->
+            <div class="category" id="cat-juices">
+                <h2 class="category-title">Fresh Juices & Aguas Frescas</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoJuiceWTajin.JPG" alt="Mango Juice with Tajin" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Juice with Tajin</h3>
+                            <p>Tropical mango juice enhanced with chili-lime Tajin seasoning</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/FreshCoconutJuice.JPG" alt="Fresh Coconut Juice" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Fresh Coconut Juice</h3>
+                            <p>Pure coconut water straight from young coconuts, naturally refreshing</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/Jamaica.JPG" alt="Jamaica (Hibiscus Tea)" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Jamaica (Hibiscus Tea)</h3>
+                            <p>Traditional hibiscus flower tea, tart and refreshing with natural color</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/Tamarindo.jpg" alt="Tamarindo" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Tamarindo</h3>
+                            <p>Sweet and tangy tamarind agua fresca, a Mexican classic</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/Horchata.JPG" alt="Horchata" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Horchata</h3>
+                            <p>Creamy rice drink with cinnamon, vanilla, and a touch of sweetness</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smoothies & Creamy Delights -->
+            <div class="category" id="cat-smoothies">
+                <h2 class="category-title">Smoothies & Creamy Delights</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoSmoothie.JPG" alt="Mango Smoothie" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Smoothie</h3>
+                            <p>Thick and creamy mango smoothie with fresh fruit and yogurt</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoLassi.JPG" alt="Mango Lassi" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Lassi</h3>
+                            <p>Traditional Indian yogurt drink with sweet mango and cardamom</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/StrawberryMilk.JPG" alt="Strawberry Milk" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Strawberry Milk</h3>
+                            <p>Creamy fresh strawberry milk with real fruit pieces</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/WatermelonMilk.JPG" alt="Watermelon Milk" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Watermelon Milk</h3>
+                            <p>Refreshing watermelon blended with creamy milk and ice</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/Mangonada.JPG" alt="Mangonada" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mangonada</h3>
+                            <p>Mexican-style mango smoothie with chili powder and chamoy</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/JustPeachy.jpg" alt="Just Peachy" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Just Peachy</h3>
+                            <p>Creamy peach smoothie with yogurt and fresh peach chunks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lemonades & Refreshers -->
+            <div class="category" id="cat-lemon">
+                <h2 class="category-title">Lemonades & Refreshers</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/FreshLemonade.JPG" alt="Fresh Lemonade" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Fresh Lemonade</h3>
+                            <p>Classic fresh-squeezed lemonade with real lemons and pure cane sugar</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/MangoLemonade.JPG" alt="Mango Lemonade" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mango Lemonade</h3>
+                            <p>Tropical twist on classic lemonade with fresh mango puree</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/StrawberryLemonade.JPG" alt="Strawberry Lemonade" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Strawberry Lemonade</h3>
+                            <p>Sweet strawberries blended with tart lemonade for perfect balance</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/PeachLemonade.JPG" alt="Peach Lemonade" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Peach Lemonade</h3>
+                            <p>Juicy peach flavor combined with zesty fresh lemonade</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/LemonWhip.JPG" alt="Lemon Whip" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Lemon Whip</h3>
+                            <p>Creamy lemon dessert drink with whipped cream and lemon zest</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialty Milk Teas -->
+            <div class="category" id="cat-specialty">
+                <h2 class="category-title">Specialty Milk Teas</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/StrawberryMilkTea.JPG" alt="Strawberry Milk Tea" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Strawberry Milk Tea</h3>
+                            <p>Sweet strawberry milk tea with fresh fruit flavor and pearls</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/CoconutHorchataBoba.JPG" alt="Coconut Horchata Boba" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Coconut Horchata Boba</h3>
+                            <p>Fusion drink combining coconut milk with traditional horchata and boba</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bakery Items -->
+            <div class="category" id="cat-bakery">
+                <h2 class="category-title">Bakery Items</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/ArrozConLecheWStrawberry.JPG" alt="Arroz Con Leche with Strawberry" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Arroz Con Leche with Strawberry</h3>
+                            <p>Traditional rice pudding dessert topped with fresh strawberries</p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image" onclick="showPage('order')">
+                            <img src="DrinkPhotos/BananaStepsConLeche.JPG" alt="Banana Steps Con Leche" loading="lazy">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Banana Steps Con Leche</h3>
+                            <p>Layered banana dessert with dulce de leche and cream</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div><!-- end menu-layout -->
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">About 408 Boba</h1>
+            <p class="menu-subtitle">Our passion for authentic boba culture and community</p>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <h3 class="about-section-title">Our Mission</h3>
+                <p>408 Boba is a local boba tea shop committed to serving quality beverages in a friendly and welcoming environment. We believe that great drinks bring people together, and our mission is to create a space where customers can relax, connect with friends, and enjoy expertly crafted boba teas. We aim to provide delicious drinks, excellent customer service, and a comfortable atmosphere that makes every visit memorable.</p>
+                
+                <h3 class="about-section-title">Our Values</h3>
+                <p><strong>Quality:</strong> We use fresh, high-quality ingredients and maintain strict standards in preparing our drinks. From our carefully selected teas to our perfectly cooked tapioca pearls, we ensure consistent taste and quality in every cup we serve.</p>
+                <p><strong>Community:</strong> We strive to be more than just a boba shop - we want to be a gathering place for our local community. Whether you're studying, meeting friends, or taking a break from your day, we aim to provide a welcoming space for everyone.</p>
+                <p><strong>Service:</strong> Our team is dedicated to providing friendly, efficient, and personalized service. We take the time to understand your preferences and help you discover new flavors, ensuring every interaction is positive and memorable.</p>
+                <p><strong>Variety:</strong> We offer an extensive menu with a wide range of flavors, toppings, and customization options. From classic milk teas to innovative seasonal creations, we cater to diverse tastes and dietary preferences, including dairy-free and sugar-free alternatives.</p>
+                
+                <h3 class="about-section-title">Our Team</h3>
+                <p>Our passionate and friendly staff brings enthusiasm and expertise to every drink we prepare. Each team member is thoroughly trained in our preparation methods and committed to maintaining our high standards. We believe that great customer service starts with knowledgeable, caring staff who take pride in their work and genuinely enjoy helping customers discover their perfect drink.</p>
+                
+                <h3 class="about-section-title">Our Commitment</h3>
+                <p>We are committed to continuous improvement and staying current with trends in the boba tea industry. We regularly update our menu with seasonal offerings and customer favorites, always seeking feedback to enhance our products and service. Our goal is to be your go-to destination for quality boba tea in a comfortable, friendly environment.</p>
+                
+                <h3 class="about-section-title">Visit Us</h3>
+                <p>We look forward to welcoming you to 408 Boba and sharing our passion for great boba tea with you. Whether you're a longtime boba enthusiast or trying it for the first time, our team is here to guide you through our menu and help you find something delicious. Come experience the 408 Boba difference - we're confident you'll become a regular customer and part of our growing community.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Get in Touch</h1>
+            <p class="menu-subtitle">We'd love to hear from you</p>
+        </div>
+
+        <div class="section">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Visit Us</h3>
+                    <p><strong>Address:</strong><br>
+                    1053 E El Camino Real #1<br>
+                    Sunnyvale, CA 94087</p>
+                    <p><strong>Parking:</strong><br>
+                    Free parking available for quick pickup</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Store Hours</h3>
+                    <p><strong>Saturday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><strong>Sunday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><strong>Monday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><strong>Tuesday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><strong>Wednesday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><strong>Thursday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><strong>Friday:</strong><br>11:00 AM - 9:30 PM</p>
+                    <p><em>Holiday hours may vary</em></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Contact Info</h3>
+                    <p><strong>Phone:</strong><br>(408) 368-3581</p>
+                    <p><strong>Email:</strong><br>hello@4o8boba.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Connect With Us</h3>
+                    <p><strong>Instagram:</strong><br>@408boba</p>
+                    <p><strong>Facebook:</strong><br>408 Boba Sunnyvale</p>
+                    <p><strong>Yelp:</strong><br>408 Boba Reviews</p>
+                    <p><em>Tag us in your photos!</em></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Private Events</h3>
+                    <p><strong>Planning a party or gathering?</strong><br>We offer catering services and group ordering for special events. Contact us to discuss custom drink packages and bulk orders for your celebration.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Work With Us</h3>
+                    <p><strong>Join our team!</strong><br>We're always looking for friendly, energetic people to join our boba family. Stop by with your resume or call us to learn about current opportunities.</p>
+                </div>
+                
+            </div>
+            
+            <div class="section-content" style="margin-top: 3rem; text-align: center;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #2c3e50;">We Value Your Feedback</h3>
+                <p>Your experience matters to us! Whether you have suggestions, compliments, or concerns, we're always listening. Reach out through any of the channels above, and we'll get back to you as soon as possible.</p>
+                <p style="margin-top: 2rem;"><strong>Can't find what you're looking for?</strong> Call us at (408) 368-3581 and speak directly with our friendly team.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Page -->
+    <div id="order" class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Order Online</h1>
+            <p class="menu-subtitle">Quick, easy ordering for pickup and delivery</p>
+        </div>
+
+        <div class="section">
+            <!-- Order Ahead Section -->
+            <div class="order-ahead-section">
+                <div class="order-ahead-header">
+                    <h2 class="order-title">Order Ahead & Skip the Wait</h2>
+                    <p class="order-subtitle">Get your favorite boba delivered or ready for pickup in minutes</p>
+                </div>
+                <div class="delivery-platforms">
+                    <div class="platform-card" onclick="openOrderLink('uber-eats')">
+                        <h3>Uber Eats</h3>
+                        <p>Fast delivery</p>
+                    </div>
+                    <div class="platform-card" onclick="openOrderLink('doordash')">
+                        <h3>DoorDash</h3>
+                        <p>Quick & reliable</p>
+                    </div>
+                    <div class="platform-card" onclick="openOrderLink('grubhub')">
+                        <h3>Grubhub</h3>
+                        <p>Easy ordering</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
