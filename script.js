@@ -126,63 +126,6 @@ window.addEventListener('beforeunload', function() {
     window.scrollTo(0, 0);
 });
 
-// Seamless video loop using two overlapping video elements that crossfade
-function setupSeamlessVideoLoop() {
-    const container = document.querySelector('.hero-video-background');
-    const videoA = container && container.querySelector('video');
-    if (!videoA) return;
-
-    // Clone the video to create a second identical player
-    const videoB = videoA.cloneNode(true);
-    videoB.style.opacity = '0';
-    videoA.style.opacity = '1';
-    videoA.removeAttribute('loop');
-    videoB.removeAttribute('loop');
-    container.appendChild(videoB);
-
-    const FADE_START = 1.2;  // seconds before end to begin crossfade
-    const FADE_MS    = 900;  // crossfade duration in ms
-    let transitioning = false;
-    let activeVideo   = videoA;
-
-    function crossfade(from, to) {
-        if (transitioning) return;
-        transitioning = true;
-        to.currentTime = 0;
-        to.play().catch(() => {});
-
-        let start = null;
-        function step(ts) {
-            if (!start) start = ts;
-            const p = Math.min((ts - start) / FADE_MS, 1);
-            from.style.opacity = String(1 - p);
-            to.style.opacity   = String(p);
-            if (p < 1) {
-                requestAnimationFrame(step);
-            } else {
-                transitioning = false;
-            }
-        }
-        requestAnimationFrame(step);
-    }
-
-    function addLoopListener(video) {
-        video.addEventListener('timeupdate', function handler() {
-            if (!video.duration || transitioning) return;
-            if (video !== activeVideo) return;
-            if (video.duration - video.currentTime <= FADE_START) {
-                video.removeEventListener('timeupdate', handler);
-                const other = video === videoA ? videoB : videoA;
-                activeVideo = other;
-                crossfade(video, other);
-                addLoopListener(other);
-            }
-        });
-    }
-
-    videoA.play().catch(() => {});
-    addLoopListener(videoA);
-}
 
 // DOM ready
 document.addEventListener('DOMContentLoaded', function() {
@@ -193,17 +136,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.scrollTop = 0;
     }, 0);
 
-    // Freeze video at first frame (remove this block and uncomment setupSeamlessVideoLoop to re-enable)
-    const heroVid = document.querySelector('.hero-video-background video');
-    if (heroVid) {
-        heroVid.play().then(() => {
-            heroVid.pause();
-            heroVid.currentTime = 0;
-        }).catch(() => {
-            heroVid.currentTime = 0;
-        });
-    }
-    // setupSeamlessVideoLoop(); // Uncomment to re-enable seamless loop
+    // Homepage photo slideshow
+    (function initSlideshow() {
+        const slides = document.querySelectorAll('.hero-slideshow .slide');
+        if (!slides.length) return;
+        let current = 0;
+        setInterval(function() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 4000);
+    })();
 
     // Initialize first menu category
     const firstCat = document.querySelector('.menu-categories .category');
@@ -214,14 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Video error fallback
-    const firstVideo = document.querySelector('.hero-video-background video');
-    if (firstVideo) {
-        firstVideo.addEventListener('error', function() {
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) heroSection.style.background = '#2a1e12';
-        });
-    }
 
     // Scroll animations
     const observerOptions = {
