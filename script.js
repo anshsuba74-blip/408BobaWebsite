@@ -177,6 +177,96 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
+
+// ── Drink Gallery Rotator ──
+(function initDrinkGallery() {
+    const drinks = [
+        "DrinkPhotos/MangoFlurry.jpg",
+        "DrinkPhotos/MangoFlurryWPoppingBoba.jpg",
+        "DrinkPhotos/OreoCrumble.jpg",
+        "DrinkPhotos/Strawberry Paradise.jpg",
+        "DrinkPhotos/StrawberryDrip.JPG",
+        "DrinkPhotos/DewyDelight.jpg",
+        "DrinkPhotos/BrownSugarMilkTea.JPG",
+        "DrinkPhotos/LycheeBrownSugarMilkTea.JPG",
+        "DrinkPhotos/ThaiMilkTea.JPG",
+        "DrinkPhotos/CoconutThaiMilkTea.JPG",
+        "DrinkPhotos/TaroBliss.jpg",
+        "DrinkPhotos/TaroMilkTea.JPG",
+        "DrinkPhotos/OreoMilkTea.JPG",
+        "DrinkPhotos/MangoMilkTea.jpg",
+        "DrinkPhotos/LycheeMilkTea.jpg",
+        "DrinkPhotos/BananaCreamMatcha.JPG",
+        "DrinkPhotos/GuavaBlackTea.JPG",
+        "DrinkPhotos/GuavaMilkTea.JPG",
+        "DrinkPhotos/PeachMilkTea.jpg",
+        "DrinkPhotos/WatermelonJuicewithTajin.JPG",
+        "DrinkPhotos/MatchaD'Amour.JPG",
+        "DrinkPhotos/MangoMatcha.JPG",
+        "DrinkPhotos/MatchaLatte.JPG",
+        "DrinkPhotos/MangoJuiceWTajin.JPG",
+        "DrinkPhotos/FreshCoconutJuice.JPG",
+        "DrinkPhotos/Jamaica.JPG",
+        "DrinkPhotos/Tamarindo.jpg",
+        "DrinkPhotos/Horchata.JPG",
+        "DrinkPhotos/MangoSmoothie.JPG",
+        "DrinkPhotos/MangoLassi.JPG",
+        "DrinkPhotos/StrawberryMilk.JPG",
+        "DrinkPhotos/WatermelonMilk.JPG",
+        "DrinkPhotos/Mangonada.JPG",
+        "DrinkPhotos/JustPeachy.jpg",
+        "DrinkPhotos/FreshLemonade.JPG",
+        "DrinkPhotos/MangoLemonade.JPG",
+        "DrinkPhotos/StrawberryLemonade.JPG",
+        "DrinkPhotos/PeachLemonade.JPG",
+        "DrinkPhotos/LemonWhip.JPG",
+        "DrinkPhotos/StrawberryMilkTea.JPG",
+        "DrinkPhotos/CoconutHorchataBoba.JPG",
+        "DrinkPhotos/ArrozConLecheWStrawberry.JPG",
+        "DrinkPhotos/BananaStepsConLeche.JPG",
+        "DrinkPhotos/DragonFruitLemonadeRefresher.JPG",
+        "DrinkPhotos/LycheeJasmineTea.JPG",
+        "DrinkPhotos/MangoJasmineTea.jpg",
+        "DrinkPhotos/StrawberryJasmineTea.JPG",
+        "DrinkPhotos/MulberryBlackTea.JPG",
+        "DrinkPhotos/BananaBlackSesame.JPG",
+        "DrinkPhotos/MatchaMango.JPG"
+    ];
+
+    const cards = document.querySelectorAll('#drinkGallery .gallery-card');
+    if (!cards.length) return;
+
+    // Shuffle array
+    const shuffled = [...drinks].sort(() => Math.random() - 0.5);
+    let offset = 0;
+
+    function setCards(animate) {
+        cards.forEach((card, i) => {
+            const idx = (offset + i) % shuffled.length;
+            if (animate) {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    card.style.backgroundImage = "url('" + shuffled[idx] + "')";
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, i * 80);
+            } else {
+                card.style.backgroundImage = "url('" + shuffled[idx] + "')";
+            }
+        });
+        offset = (offset + 1) % shuffled.length;
+    }
+
+    // Add transition to cards
+    cards.forEach(card => {
+        card.style.transition = card.style.transition + ', opacity 0.5s ease, transform 0.5s ease';
+    });
+
+    setCards(false);
+    setInterval(() => setCards(true), 2500);
+})();
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
         const navLinks = document.querySelector('.nav-links');
