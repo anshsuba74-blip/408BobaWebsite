@@ -136,17 +136,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.scrollTop = 0;
     }, 0);
 
-    // Homepage photo slideshow
-    (function initSlideshow() {
-        const slides = document.querySelectorAll('.hero-slideshow .slide');
-        if (!slides.length) return;
-        let current = 0;
-        setInterval(function() {
-            slides[current].classList.remove('active');
-            current = (current + 1) % slides.length;
-            slides[current].classList.add('active');
-        }, 4000);
-    })();
+    // Freeze video at first frame
+    const heroVid = document.querySelector('.hero-video-background video');
+    if (heroVid) {
+        heroVid.play().then(() => {
+            heroVid.pause();
+            heroVid.currentTime = 0;
+        }).catch(() => {
+            heroVid.currentTime = 0;
+        });
+    }
 
     // Initialize first menu category
     const firstCat = document.querySelector('.menu-categories .category');
